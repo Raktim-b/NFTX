@@ -774,6 +774,12 @@ nav,
 .scl-list > li {
   margin-right: 37px;
 }
+.scl-links {
+  transition: 0.3s all linear;
+}
+.scl-links:hover {
+  transform: scale(1.1) translateY(-3px);
+}
 .store-sec {
   margin-top: 26px;
 }
@@ -802,6 +808,11 @@ nav,
 }
 .ftr-list-itm {
   margin-top: 25px;
+}
+.ftr-list-itm:hover > a {
+  text-decoration: underline;
+  color: var(--lebel-color);
+  transform: translateX(2px);
 }
 .ftr-list-itm > a {
   font-size: 20px;
@@ -1354,6 +1365,18 @@ nav,
   .scl-list > li {
     margin-right: 24px;
   }
+  .scl-links {
+    width: 20px;
+    height: 30px;
+    object-fit: cover;
+  }
+
+  .scl-links > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
   .ftr-left {
     margin: 0 auto 50px;
   }
