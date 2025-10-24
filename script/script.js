@@ -75,3 +75,26 @@ const swiperSec = new Swiper(".swiper2", {
     },
   },
 });
+function animateCounter(element, target, duration = 2000, suffix = "") {
+  let current = 0;
+  const increment = target / (duration / 16); // 60fps
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      element.textContent = target + suffix;
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(current) + suffix;
+    }
+  }, 16);
+}
+
+// Animate banner stats immediately on page load
+const bannerStats = document.querySelectorAll(".stat-number");
+bannerStats.forEach((stat) => {
+  const text = stat.textContent.trim();
+  const number = parseInt(text.replace(/\D/g, "")); // Extract number
+  const suffix = text.replace(/[0-9]/g, ""); // Extract k+ or other suffix
+  stat.textContent = "0" + suffix;
+  animateCounter(stat, number, 2000, suffix);
+});
